@@ -11,7 +11,7 @@ interface FormFieldProps {
 
 const FormField: React.FC<FormFieldProps> = ({ label, name, value, onChange, type = 'text' }) => {
   return (
-    <div className="flex items-center mb-2">
+    <div className="items-center  inline-flex mb-2 py-2">
       <label className="w-1/3 text-gray-700">{label}:</label>
       {type === 'text' ? (
         <input

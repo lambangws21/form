@@ -1,75 +1,13 @@
 // src/app/components/SurgicalProcedureForm.tsx
 "use client";
 import React, { useState, useEffect } from "react";
+import useFormState from "../hooks/useformstate";
 import FormField from "./formfield";
 import CheckboxField from "./checkboxfield";
 import Header from "./header";
 
 const SurgicalProcedureForm: React.FC = () => {
-  const [formData, setFormData] = useState({
-    diagnosa: "",
-    kemajuanTindakan: "",
-    perjalananOperasi: "",
-    baruMulai: false,
-    pertengahan: false,
-    hampirSelesai: false,
-    lainnya: "",
-    alergi: false,
-    implant: false,
-    penyakitKronik: false,
-    xray: false,
-    ctscan: false,
-    mri: false,
-    jenisInsisi: "",
-    jenisDressing: "",
-    rencanaPerawatan: "",
-    halKhusus: "",
-    khusus: false,
-    area: "",
-    areaInsisi: "",
-    ruangPemulihan: false,
-    kasa: false,
-    icu: false,
-    hcu: false,
-    lainnyaPerawatan: "",
-    tidakAda: false,
-    ada: "",
-    jumlah: "",
-    jenis: "",
-    nama: "",
-    cairan: "",
-    hangat: false,
-    dingin: false,
-    suhuRuangan: false,
-    darah: "",
-    urine: "",
-    letakDrain: "",
-    ukuranDrain: "",
-    jenisDrain: "",
-    jenisDarah: "",
-    lengkap: false,
-    tidakLengkap: false,
-    setInstrumen: "",
-    sudahDiambil: false,
-    belumDiambil: false,
-    patologi: false,
-    sitologi: false,
-    vc: false,
-    kultur: false,
-    formalin: false,
-    adaLabel: false,
-  });
-
-  useEffect(() => {
-    const savedData = localStorage.getItem("formData");
-    if (savedData) {
-      setFormData(JSON.parse(savedData));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("formData", JSON.stringify(formData));
-  }, [formData]);
+  const { formData, setFormData } = useFormState();
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -98,7 +36,7 @@ const SurgicalProcedureForm: React.FC = () => {
         <div className="text-5xl mr-3 font-bold">S</div> Surgical Procedure
       </div>
       <div className="relative grid gap-4">
-        <div className="flex justify-center flex-col bg-red-50">
+        <div className="flex justify-center flex-col border-b-8" >
           <FormField
             label="Diagnosa"
             name="diagnosa"
@@ -140,7 +78,7 @@ const SurgicalProcedureForm: React.FC = () => {
             />
           </div>
           <div className="flex justify-start items-center  gap-3 mb-2">
-            <label className="block text-gray-700 ">Perjalanan Operasi :</label>
+            <label className="block text-gray-700 ">Yang perlu diperhatikan pada pasien :</label>
             <CheckboxField
               label="Alergi"
               name="alergi"
@@ -210,8 +148,8 @@ const SurgicalProcedureForm: React.FC = () => {
               />
               <CheckboxField
                 label="Tidak Ada"
-                name="tidakAda"
-                checked={formData.tidakAda}
+                name="tidakAdaHalKhusus"
+                checked={formData.tidakAdaHalKhusus}
                 onChange={handleChange}
               />
             </div>
@@ -252,7 +190,7 @@ const SurgicalProcedureForm: React.FC = () => {
         <div className="text-5xl mr-3 font-bold">W</div> wet
       </div>
       <div className="relative grid gap-4">
-        <div className="flex justify-center flex-col bg-red-50">
+        <div className="flex justify-center flex-col border-b-8 ">
           <div className="mb-2 flex justify-start items-center gap-3 ">
             <label className="block text-gray-700 ">
               Obatan-obatan di meja operasi :
@@ -310,8 +248,8 @@ const SurgicalProcedureForm: React.FC = () => {
               />
               <CheckboxField
                 label="Tidak Ada"
-                name="tidakAda"
-                checked={formData.tidakAda}
+                name="tidakAdaInstrumentMeja"
+                checked={formData.tidakAdaInstrumenMeja}
                 onChange={handleChange}
               />
             </div>
@@ -333,7 +271,7 @@ const SurgicalProcedureForm: React.FC = () => {
             <label className="block text-gray-700 ">Produksi Urine:</label>
             <div className="flex gap-x-6 items-center mt-2 ml-6">
               <FormField
-                label="Urine"
+                label="Jumlah"
                 name="urine"
                 value={formData.urine}
                 onChange={handleChange}
@@ -385,7 +323,7 @@ const SurgicalProcedureForm: React.FC = () => {
         <div className="text-5xl mr-3 font-bold">I</div> Instrumen
       </div>
       <div className="relative grid gap-4">
-        <div className="flex justify-center flex-col bg-red-50">
+        <div className="flex justify-center flex-col border-b-8 ">
           <div className="mb-2 flex justify-start items-center gap-3 ">
             <label className="block text-gray-700 ">
               Instrumen yang dipakai :
@@ -413,8 +351,8 @@ const SurgicalProcedureForm: React.FC = () => {
             <label className="block text-gray-700 ">Instrumen Tambahan :</label>
             <FormField
               label="Nama Set Instrumen"
-              name="namaSetInstrumen"
-              value={formData.setInstrumen}
+              name="instrumenTambahan"
+              value={formData.instrumenTambahan}
               onChange={handleChange}
             />
           </div>
@@ -424,8 +362,8 @@ const SurgicalProcedureForm: React.FC = () => {
             </label>
             <FormField
               label="Nama Set Instrumen"
-              name="namaSetInstrumen"
-              value={formData.setInstrumen}
+              name="instrumenSelanjutnya"
+              value={formData.instrumenSelanjutnya}
               onChange={handleChange}
             />
           </div>
@@ -435,8 +373,8 @@ const SurgicalProcedureForm: React.FC = () => {
             </label>
             <FormField
               label="Nama Set Instrumen"
-              name="namaSetInstrumen"
-              value={formData.setInstrumen}
+              name="instrumenSterilkanUlang"
+              value={formData.instrumenSterilkanUlang}
               onChange={handleChange}
             />
           </div>
@@ -462,19 +400,19 @@ const SurgicalProcedureForm: React.FC = () => {
         <div className="text-5xl mr-3 font-bold">T</div> Tissue
       </div>
       <div className="relative grid gap-4">
-        <div className="flex justify-center flex-col bg-red-50">
+        <div className="flex justify-center flex-col border-b-8 ">
           <div className="mb-2 flex justify-start items-center gap-3 ">
             <label className="block text-gray-700 ">Specimen :</label>
             <CheckboxField
               label="Ada Specimen"
-              name="tidakAda"
-              checked={formData.tidakAda}
+              name="adaSpecimen"
+              checked={formData.adaSpecimen}
               onChange={handleChange}
             />
             <CheckboxField
               label="Tidak Ada"
-              name="tidakAda"
-              checked={formData.tidakAda}
+              name="tidakAdaSpecimen"
+              checked={formData.tidakAdaSpecimen}
               onChange={handleChange}
             />
             <CheckboxField
@@ -528,7 +466,7 @@ const SurgicalProcedureForm: React.FC = () => {
             <CheckboxField
               label="Tidak difikasasi"
               name="tidakDifikasasi"
-              checked={formData.tidakAda}
+              checked={formData.tidakDifiksasi}
               onChange={handleChange}
             />
           </div>
@@ -542,8 +480,8 @@ const SurgicalProcedureForm: React.FC = () => {
             />
             <CheckboxField
               label="Tidak ada"
-              name="tidakAda"
-              checked={formData.tidakAda}
+              name="tidakAdaLabel"
+              checked={formData.tidakAdaLabel}
               onChange={handleChange}
             />
           </div>
@@ -551,8 +489,8 @@ const SurgicalProcedureForm: React.FC = () => {
             <label className="block text-gray-700 ">Penggunaan Graft :</label>
             <CheckboxField
               label="Tidak ada"
-              name="tidakAda"
-              checked={formData.tidakAda}
+              name="tidakAdaGraft"
+              checked={formData.tidakAdaGraft}
               onChange={handleChange}
             />
             <FormField
@@ -569,15 +507,15 @@ const SurgicalProcedureForm: React.FC = () => {
         <div className="text-5xl mr-3 font-bold">C</div> Counts
       </div>
       <div className="relative grid gap-4">
-        <div className="flex justify-center flex-col bg-red-50">
+        <div className="flex justify-center flex-col border-b-8 ">
           <div className="mb-2 flex justify-start items-center gap-5 ">
             <label className="block text-gray-700 ">
               Kassa yang digunanakan :
             </label>
             <FormField
               label="Jenis dan Jumlah"
-              name="jenis"
-              value={formData.jenis}
+              name="jenisKassa"
+              value={formData.jenisKassa}
               onChange={handleChange}
             />
           </div>
@@ -587,14 +525,14 @@ const SurgicalProcedureForm: React.FC = () => {
             </label>
             <FormField
               label="Ada, Jenis dan Jumlah"
-              name="jenis"
-              value={formData.jenis}
+              name="KasaDalamRongga"
+              value={formData.KasaDalamRongga}
               onChange={handleChange}
             />
             <CheckboxField
               label="Tidak ada"
-              name="tidakAda"
-              checked={formData.tidakAda}
+              name="tidakAdaKasa"
+              checked={formData.tidakAdaKasa}
               onChange={handleChange}
             />
           </div>
@@ -602,8 +540,8 @@ const SurgicalProcedureForm: React.FC = () => {
             <label className="block text-gray-700 ">Jarum :</label>
             <FormField
               label="Jumlah"
-              name="jumlah"
-              value={formData.jumlah}
+              name="jumlahJarum"
+              value={formData.jumlahJarum}
               onChange={handleChange}
             />
           </div>
@@ -612,13 +550,13 @@ const SurgicalProcedureForm: React.FC = () => {
             <FormField
               label="No Pisau"
               name="noPisau"
-              value={formData.jumlah}
+              value={formData.noPisau}
               onChange={handleChange}
             />
             <FormField
               label="Jumlah"
-              name="jumlah"
-              value={formData.jumlah}
+              name="jumlahPisau"
+              value={formData.jumlahPisau}
               onChange={handleChange}
             />
           </div>
@@ -645,7 +583,7 @@ const SurgicalProcedureForm: React.FC = () => {
         <div className="text-5xl mr-3 font-bold">H</div> Have You Any Question?
       </div>
       <div className="relative grid gap-4">
-        <div className="flex justify-center flex-col bg-red-50">
+        <div className="flex justify-center flex-col border-b-8 ">
           <div className="mb-2 flex justify-start items-center gap-5 ">
             <label className="block text-gray-700 ">
               Hal lain yang ingin di tanyakan :
@@ -655,11 +593,12 @@ const SurgicalProcedureForm: React.FC = () => {
               name="ada"
               value={formData.ada}
               onChange={handleChange}
+              type="textarea"
             />
             <CheckboxField
               label="Tidak ada"
-              name="tidakAda"
-              checked={formData.tidakAda}
+              name="tidakAdaPertanyaan"
+              checked={formData.tidakAdaPertayaan}
               onChange={handleChange}
             />
           </div>
@@ -669,14 +608,14 @@ const SurgicalProcedureForm: React.FC = () => {
             </label>
             <FormField
               label="Ada"
-              name="ada"
-              value={formData.ada}
+              name="adaPertanyaan"
+              value={formData.adaPertanyaan}
               onChange={handleChange}
             />
             <CheckboxField
               label="Tidak ada"
-              name="tidakAda"
-              checked={formData.tidakAda}
+              name="tidakAdaDokumen"
+              checked={formData.tidakAdaDokumen}
               onChange={handleChange}
             />
           </div>
@@ -685,15 +624,15 @@ const SurgicalProcedureForm: React.FC = () => {
               Nomor serial Implant :
             </label>
             <FormField
-              label="Ada"
-              name="ada"
-              value={formData.ada}
+              label="Ada Impan"
+              name="nomorSerialImplant"
+              value={formData.nomorSerialImplant}
               onChange={handleChange}
             />
               <CheckboxField
               label="Tidak ada"
-              name="tidakAda"
-              checked={formData.tidakAda}
+              name="tidakAdaSerialImplant"
+              checked={formData.tidakAdaSerialImplant}
               onChange={handleChange}
             />
             

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Logo from "@/app/st_carolus.png";
 
+
 const Header = () => {
   return (
     <div>
@@ -8,7 +9,7 @@ const Header = () => {
         <div>
           <Image src={Logo} alt="logo" width={200} height={200} />
         </div>
-        <div className="flex items-center flex-col space-x-5">
+        <div className="flex items-center flex-col space-x-5 font-bold uppercase text-lg">
           <h1>RUMAH SAKIT ST SINT CAROLUS JAKARTA PUSAT</h1>
           <h1>PANDUAN SERAH TERIMA INTRA OPERASI DI KAMAR OPERASI</h1>
         </div>
