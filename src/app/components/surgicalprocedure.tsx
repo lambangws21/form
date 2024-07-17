@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import FormField from "./formfield";
 import CheckboxField from "./checkboxfield";
+import Header from "./header";
 
 const SurgicalProcedureForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -34,6 +35,7 @@ const SurgicalProcedureForm: React.FC = () => {
     tidakAda: false,
     ada: "",
     jumlah: "",
+    jenis: "",
     nama: "",
     cairan: "",
     hangat: false,
@@ -91,6 +93,7 @@ const SurgicalProcedureForm: React.FC = () => {
 
   return (
     <form className="max-w-5xl mx-auto p-4 bg-white rounded shadow-md">
+      <Header/>
       <div className="text-2xl font-bold mb-4 uppercase flex items-center justify-start ">
         <div className="text-5xl mr-3 font-bold">S</div> Surgical Procedure
       </div>
@@ -489,7 +492,6 @@ const SurgicalProcedureForm: React.FC = () => {
           </div>
           <div className="mb-2 flex justify-start items-center gap-3 ">
             <label className="block text-gray-700 ">Jenis Pemeriksaan :</label>
-
             <CheckboxField
               label="Patologi"
               name="patologi"
@@ -515,10 +517,8 @@ const SurgicalProcedureForm: React.FC = () => {
               onChange={handleChange}
             />
           </div>
-
           <div className="mb-2 flex justify-start items-center gap-3 ">
             <label className="block text-gray-700 ">Fiksasi Specimen :</label>
-
             <CheckboxField
               label="Formalin 10%"
               name="formalin"
@@ -534,7 +534,6 @@ const SurgicalProcedureForm: React.FC = () => {
           </div>
           <div className="mb-2 flex justify-start items-center gap-3 ">
             <label className="block text-gray-700 ">Label Specimen :</label>
-
             <CheckboxField
               label="Ada Label"
               name="adaLabel"
@@ -562,6 +561,142 @@ const SurgicalProcedureForm: React.FC = () => {
               value={formData.ada}
               onChange={handleChange}
             />
+          </div>
+        </div>
+      </div>
+      {/* Counts */}
+      <div className="text-2xl font-bold mb-4 uppercase flex items-center justify-start ">
+        <div className="text-5xl mr-3 font-bold">C</div> Counts
+      </div>
+      <div className="relative grid gap-4">
+        <div className="flex justify-center flex-col bg-red-50">
+          <div className="mb-2 flex justify-start items-center gap-5 ">
+            <label className="block text-gray-700 ">
+              Kassa yang digunanakan :
+            </label>
+            <FormField
+              label="Jenis dan Jumlah"
+              name="jenis"
+              value={formData.jenis}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-2 flex justify-start items-center gap-5 ">
+            <label className="block text-gray-700 ">
+              Kassa dalam rongga tubuh :
+            </label>
+            <FormField
+              label="Ada, Jenis dan Jumlah"
+              name="jenis"
+              value={formData.jenis}
+              onChange={handleChange}
+            />
+            <CheckboxField
+              label="Tidak ada"
+              name="tidakAda"
+              checked={formData.tidakAda}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-2 flex justify-start items-center gap-5 ">
+            <label className="block text-gray-700 ">Jarum :</label>
+            <FormField
+              label="Jumlah"
+              name="jumlah"
+              value={formData.jumlah}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-2 flex justify-start items-center gap-5 ">
+            <label className="block text-gray-700 ">Pisau :</label>
+            <FormField
+              label="No Pisau"
+              name="noPisau"
+              value={formData.jumlah}
+              onChange={handleChange}
+            />
+            <FormField
+              label="Jumlah"
+              name="jumlah"
+              value={formData.jumlah}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-2 flex justify-start items-center gap-5 ">
+            <label className="block text-gray-700 ">Instrument :</label>
+            <FormField
+              label="Jenis "
+              name="jenis"
+              value={formData.jenis}
+              onChange={handleChange}
+            />
+            <FormField
+              label="Jumlah"
+              name="jumlah"
+              value={formData.jumlah}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Have Any Question */}
+      <div className="text-2xl font-bold mb-4 uppercase flex items-center justify-start ">
+        <div className="text-5xl mr-3 font-bold">H</div> Have You Any Question?
+      </div>
+      <div className="relative grid gap-4">
+        <div className="flex justify-center flex-col bg-red-50">
+          <div className="mb-2 flex justify-start items-center gap-5 ">
+            <label className="block text-gray-700 ">
+              Hal lain yang ingin di tanyakan :
+            </label>
+            <FormField
+              label="Ada"
+              name="ada"
+              value={formData.ada}
+              onChange={handleChange}
+            />
+            <CheckboxField
+              label="Tidak ada"
+              name="tidakAda"
+              checked={formData.tidakAda}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-2 flex justify-start items-center gap-5 ">
+            <label className="block text-gray-700 ">
+              Dokumen yang harus dilengkapi :
+            </label>
+            <FormField
+              label="Ada"
+              name="ada"
+              value={formData.ada}
+              onChange={handleChange}
+            />
+            <CheckboxField
+              label="Tidak ada"
+              name="tidakAda"
+              checked={formData.tidakAda}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-2 flex justify-start items-center gap-5 ">
+            <label className="block text-gray-700 ">
+              Nomor serial Implant :
+            </label>
+            <FormField
+              label="Ada"
+              name="ada"
+              value={formData.ada}
+              onChange={handleChange}
+            />
+              <CheckboxField
+              label="Tidak ada"
+              name="tidakAda"
+              checked={formData.tidakAda}
+              onChange={handleChange}
+            />
+            
           </div>
         </div>
       </div>
