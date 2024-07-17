@@ -13,12 +13,12 @@ const CheckboxField: React.FC<CheckboxFieldProps> = ({ label, name, checked, onC
     <div className="mb-1 flex items-center justify-center">
       <input
         type="checkbox"
-        className="mr-2 rounded-full"
+        className="mr-2 rounded-full border-gray-300 text-indigo-600 focus:ring-indigo-500"
         name={name}
         checked={checked}
         onChange={onChange}
       />
-      <label className="text-gray-700">{label}</label>
+      <label className="text-gray-700 md:text-xs">{label}</label>
     </div>
   );
 };

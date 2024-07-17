@@ -75,6 +75,12 @@ const useFormState = () => {
     instrumenTambahan: "",
     instrumenSelanjutnya: "",
     instrumenSterilkanUlang: "",
+    tindakanLainnya: "",
+    penyakitLainnya: "",
+    adaCairan: "",
+    jumlahDarah: "",
+    adaGraft: "",
+    adaDokumen: "",
 
   });
 

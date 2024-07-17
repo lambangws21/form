@@ -10,19 +10,20 @@ interface FormFieldProps {
 }
 
 const FormField: React.FC<FormFieldProps> = ({ label, name, value, onChange, type = 'text' }) => {
+ 
   return (
     <div className="items-center  inline-flex mb-2 py-2">
-      <label className="w-1/3 text-gray-700">{label}:</label>
+      <label className="w-1/3 text-gray-700 md:text-xs">{label}:</label>
       {type === 'text' ? (
         <input
-          className="w-full px-3 py-1 border-inherit rounded-xl"
+          className="w-full px-3 py-1 border-inherit rounded-xl md:text-xs" 
           name={name}
           value={value}
           onChange={onChange}
         />
       ) : (
         <textarea
-          className="w-full px-2 py-1 border-inherit rounded-xl"
+          className="w-full px-2 py-1 border-inherit rounded-xl md:text-sm"
           name={name}
           value={value}
           onChange={onChange}
