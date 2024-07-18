@@ -8,7 +8,7 @@ const config: Config = {
   ],
   theme: {
     screens: {
-      'sm': '640px', // Small devices (mobile phones)
+      'sm': '406px', // Small devices (mobile phones)
       'md': '768px', // Medium devices (tablets)
       'lg': '1024px', // Large devices (desktops / laptops)
       'xl': '1280px', // Extra large devices (large desktops)

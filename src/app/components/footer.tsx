@@ -38,7 +38,7 @@ const Header = () => {
     }
   };
   return (
-    <div className="items-center inline-flex mb-2 py-2 justify-between gap-20">
+    <div className="items-center inline-flex mb-2 py-2 justify-between gap-20 mx-auto mt-8">
       <FormField
         label="Pemberi Informasi"
         name="pemberiInformasi"

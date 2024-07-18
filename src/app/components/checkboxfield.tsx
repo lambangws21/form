@@ -18,7 +18,7 @@ const CheckboxField: React.FC<CheckboxFieldProps> = ({ label, name, checked, onC
         checked={checked}
         onChange={onChange}
       />
-      <label className="text-gray-700 md:text-xs">{label}</label>
+      <label className="text-gray-700 md:text-xs sm:text-[7px]">{label}</label>
     </div>
   );
 };

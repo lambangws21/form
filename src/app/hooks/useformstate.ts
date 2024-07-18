@@ -81,6 +81,8 @@ const useFormState = () => {
     jumlahDarah: "",
     adaGraft: "",
     adaDokumen: "",
+    jumlahKassa:"",
+    jenisKassaRongga: "",
 
   });
 

@@ -5,6 +5,7 @@ import useFormState from "../hooks/useformstate";
 import FormField from "./formfield";
 import CheckboxField from "./checkboxfield";
 import Header from "./header";
+import Footer from "./footer"
 
 const SurgicalProcedureForm: React.FC = () => {
   const { formData, setFormData } = useFormState();
@@ -32,14 +33,15 @@ const SurgicalProcedureForm: React.FC = () => {
   return (
     <form className="max-w-5xl sm:w-full mx-auto p-6 bg-white rounded shadow-md">
       <Header/>
-      <div className="text-2xl font-bold mb-4 uppercase flex items-center justify-start md:text-xl">
-        <div className="text-7xl mr-3  font-bold">S</div> Surgical Procedure
+      <div className="text-2xl font-bold mb-4 sm:text-xs  uppercase flex items-center justify-start md:text-xl">
+        <div className="text-7xl mr-3 font-bold sm:font-medium sm:sr-only ">S</div> Surgical Procedure
       </div>
       <div className="relative grid gap-4">
         <div className="flex justify-center flex-col border-b-8" >
           <FormField
             label="Diagnosa"
             name="diagnosa"
+            className="text-md sm:text-[8px] py-2"
             value={formData.diagnosa}
             onChange={handleChange}
           />
@@ -51,7 +53,7 @@ const SurgicalProcedureForm: React.FC = () => {
             type="textarea"
           />
           <div className="mb-2 flex justify-start items-center gap-3 ">
-            <label className="block text-gray-700 md:text-xs">Perjalanan Operasi :</label>
+            <label className="block text-gray-700 md:text-xs sm:text-[8px]">Perjalanan Operasi</label>
             <CheckboxField
               label="Baru mulai"
               name="baruMulai"
@@ -78,7 +80,7 @@ const SurgicalProcedureForm: React.FC = () => {
             />
           </div>
           <div className="flex justify-start items-center  gap-3 mb-2">
-            <label className="block text-gray-700 md:text-xs ">Yang perlu diperhatikan pada pasien :</label>
+            <label className="block text-gray-700 md:text-xs sm:text-[8px] ">Yang perlu diperhatikan pada pasien</label>
             <CheckboxField
               label="Alergi"
               name="alergi"
@@ -119,7 +121,7 @@ const SurgicalProcedureForm: React.FC = () => {
             />
           </div>
           <div className="flex justify-start  gap-3 mb-2">
-            <label className="block text-gray-700  md:text-xs">
+            <label className="block text-gray-700  md:text-xs sm:text-[8px]">
               Jenis Dressing yanng dibutuhkan :
             </label>
             <CheckboxField
@@ -136,8 +138,8 @@ const SurgicalProcedureForm: React.FC = () => {
             />
           </div>
           <div className="flex justify-start gap-2 items-center mb-2">
-            <label className="block text-gray-700 md:text-xs">
-              Hal Khusus yang diperhatikan setelah operasi :
+            <label className="block text-gray-700 md:text-xs sm:text-[8px]">
+              Hal Khusus yang diperhatikan setelah operasi
             </label>
             <div className="flex gap-x-6 items-center mt-2">
               <FormField
@@ -155,8 +157,8 @@ const SurgicalProcedureForm: React.FC = () => {
             </div>
           </div>
           <div className="flex justify-start  gap-2 items-center mb-3">
-            <label className="block text-gray-700 md:text-xs">
-              Rencana perawatan pasca operasi :
+            <label className="block text-gray-700 md:text-xs sm:text-[8px]">
+              Rencana perawatan pasca operasi
             </label>
             <CheckboxField
               label="Ruang Pemulihan"
@@ -186,14 +188,14 @@ const SurgicalProcedureForm: React.FC = () => {
         </div>
       </div>
       {/* Wet */}
-      <div className="text-2xl font-bold mb-4 uppercase flex items-center justify-start ">
-        <div className="text-5xl mr-3 font-bold">W</div> wet
+      <div className="text-2xl font-bold mb-4 uppercase flex sm:text-md mt-2 items-center justify-start ">
+        <div className="text-5xl mr-3 font-bold sm:sr-only">W</div> wet
       </div>
       <div className="relative grid gap-4">
         <div className="flex justify-center flex-col border-b-8 ">
           <div className="mb-2 flex justify-start items-center gap-3 ">
-            <label className="block text-gray-700 md:text-xs">
-              Obatan-obatan di meja operasi :
+            <label className="block text-gray-700 md:text-xs sm:text-[8px]">
+              Obatan-obatan di meja operasi
             </label>
             <FormField
               label="Nama"
@@ -209,7 +211,7 @@ const SurgicalProcedureForm: React.FC = () => {
             />
           </div>
           <div className="flex justify-start items-center  gap-3 mb-2">
-            <label className="block text-gray-700 md:text-xs">Cairan Irigasi :</label>
+            <label className="block text-gray-700 md:text-xs sm:text-[8px]">Cairan Irigasi</label>
             <FormField
               label="Nama Cairan"
               name="cairan"
@@ -236,8 +238,8 @@ const SurgicalProcedureForm: React.FC = () => {
             />
           </div>
           <div className="flex justify-start gap-2 items-center mb-2">
-            <label className="block text-gray-700 md:text-xs">
-              Cairan di Meja instrument :
+            <label className="block text-gray-700 md:text-xs sm:text-[8px]">
+              Cairan di Meja instrument
             </label>
             <div className="flex gap-x-6 items-center mt-2 ml-6">
               <FormField
@@ -255,8 +257,8 @@ const SurgicalProcedureForm: React.FC = () => {
             </div>
           </div>
           <div className="flex justify-start gap-2 items-center mb-2">
-            <label className="block text-gray-700 md:text-xs">
-              Jumlah perdarahan sampai saat ini:
+            <label className="block text-gray-700 md:text-xs sm:text-[8px]">
+              Jumlah perdarahan sampai saat ini
             </label>
             <div className="flex gap-x-6 items-center mt-2 ml-6">
               <FormField
@@ -268,7 +270,7 @@ const SurgicalProcedureForm: React.FC = () => {
             </div>
           </div>
           <div className="flex justify-start gap-2 items-center mb-2">
-            <label className="block text-gray-700 md:text-xs">Produksi Urine:</label>
+            <label className="block text-gray-700 md:text-xs sm:text-[8px]">Produksi Urine</label>
             <div className="flex gap-x-6 items-center mt-2 ml-6">
               <FormField
                 label="Jumlah"
@@ -279,8 +281,8 @@ const SurgicalProcedureForm: React.FC = () => {
             </div>
           </div>
           <div className="mb-2 flex justify-start items-center gap-3 ">
-            <label className="block text-gray-700 md:text-xs">
-              Persiapan darah yang tersedia :
+            <label className="block text-gray-700 md:text-xs sm:text-[8px]">
+              Persiapan darah yang tersedia
             </label>
             <FormField
               label="Jumlah"
@@ -296,7 +298,7 @@ const SurgicalProcedureForm: React.FC = () => {
             />
           </div>
           <div className="mb-2 flex justify-start items-center gap-3 ">
-            <label className="block text-gray-700 md:text-xs">Drain pasien :</label>
+            <label className="block text-gray-700 md:text-xs sm:text-[8px]">Drain pasien</label>
             <FormField
               label="Letak Drain"
               name="letakDrain"
@@ -319,14 +321,14 @@ const SurgicalProcedureForm: React.FC = () => {
         </div>
       </div>
       {/* Instrumen */}
-      <div className="text-2xl font-bold mb-4 uppercase flex items-center justify-start ">
-        <div className="text-5xl mr-3 font-bold">I</div> Instrumen
+      <div className="text-2xl font-bold mb-4 uppercase sm:text-md mt-2 flex items-center justify-start ">
+        <div className="text-5xl mr-3 font-bold sm:sr-only sm:mt-2 sm:text-sm">I</div> Instrumen
       </div>
       <div className="relative grid gap-4">
         <div className="flex justify-center flex-col border-b-8 ">
           <div className="mb-2 flex justify-start items-center gap-3 ">
-            <label className="block text-gray-700 md:text-xs">
-              Instrumen yang dipakai :
+            <label className="block text-gray-700 md:text-xs sm:text-[8px]">
+              Instrumen yang dipakai
             </label>
             <FormField
               label="Nama Set Instrumen"
@@ -348,7 +350,7 @@ const SurgicalProcedureForm: React.FC = () => {
             />
           </div>
           <div className="mb-2 flex justify-start items-center gap-3 ">
-            <label className="block text-gray-700 md:text-xs">Instrumen Tambahan :</label>
+            <label className="block text-gray-700 md:text-xs sm:text-[8px]">Instrumen Tambahan</label>
             <FormField
               label="Nama Set Instrumen"
               name="instrumenTambahan"
@@ -357,7 +359,7 @@ const SurgicalProcedureForm: React.FC = () => {
             />
           </div>
           <div className="mb-2 flex justify-start items-center gap-3 ">
-            <label className="block text-gray-700  md:text-xs">
+            <label className="block text-gray-700  md:text-xs sm:text-[8px]">
               Instrumen yang selanjutnya dipakai :
             </label>
             <FormField
@@ -368,7 +370,7 @@ const SurgicalProcedureForm: React.FC = () => {
             />
           </div>
           <div className="mb-2 flex justify-start items-center gap-3 ">
-            <label className="block text-gray-700  md:text-xs">
+            <label className="block text-gray-700  md:text-xs sm:text-[8px]">
               Instrumen yang akan disterilkan ulang :
             </label>
             <FormField
@@ -379,7 +381,7 @@ const SurgicalProcedureForm: React.FC = () => {
             />
           </div>
           <div className="mb-2 flex justify-start items-center gap-3 ">
-            <label className="block text-gray-700 md:text-xs ">Kebutuhan Implant :</label>
+            <label className="block text-gray-700 md:text-xs sm:text-[8px] ">Kebutuhan Implant</label>
             <FormField
               label="Jumlah"
               name="jumlah"
@@ -396,13 +398,13 @@ const SurgicalProcedureForm: React.FC = () => {
         </div>
       </div>
       {/* Tissue */}
-      <div className="text-2xl font-bold mb-4 uppercase flex items-center justify-start ">
-        <div className="text-5xl mr-3 font-bold">T</div> Tissue
+      <div className="text-2xl font-bold mb-4 uppercase flex sm:mt-4 items-center justify-start ">
+        <div className="text-5xl mr-3 font-bold sm:sr-only  sm:text-md ">T</div> Tissue
       </div>
       <div className="relative grid gap-4">
         <div className="flex justify-center flex-col border-b-8 ">
           <div className="mb-2 flex justify-start items-center gap-3 ">
-            <label className="block text-gray-700 md:text-xs">Specimen :</label>
+            <label className="block text-gray-700 md:text-xs sm:text-[8px]">Specimen :</label>
             <CheckboxField
               label="Ada Specimen"
               name="adaSpecimen"
@@ -429,7 +431,7 @@ const SurgicalProcedureForm: React.FC = () => {
             />
           </div>
           <div className="mb-2 flex justify-start items-center gap-3 ">
-            <label className="block text-gray-700 md:text-xs">Jenis Pemeriksaan :</label>
+            <label className="block text-gray-700 md:text-xs sm:text-[8px]">Jenis Pemeriksaan</label>
             <CheckboxField
               label="Patologi"
               name="patologi"
@@ -456,7 +458,7 @@ const SurgicalProcedureForm: React.FC = () => {
             />
           </div>
           <div className="mb-2 flex justify-start items-center gap-3 ">
-            <label className="block text-gray-700 md:text-xs">Fiksasi Specimen :</label>
+            <label className="block text-gray-700 md:text-xs sm:text-[8px]">Fiksasi Specimen</label>
             <CheckboxField
               label="Formalin 10%"
               name="formalin"
@@ -471,7 +473,7 @@ const SurgicalProcedureForm: React.FC = () => {
             />
           </div>
           <div className="mb-2 flex justify-start items-center gap-3 ">
-            <label className="block text-gray-700 md:text-xs ">Label Specimen :</label>
+            <label className="block text-gray-700 md:text-xs sm:text-[8px] ">Label Specimen</label>
             <CheckboxField
               label="Ada Label"
               name="adaLabel"
@@ -486,7 +488,7 @@ const SurgicalProcedureForm: React.FC = () => {
             />
           </div>
           <div className="mb-2 flex justify-start items-center gap-3 ">
-            <label className="block text-gray-700  md:text-xs">Penggunaan Graft :</label>
+            <label className="block text-gray-700  md:text-xs sm:text-[8px]">Penggunaan Graft</label>
             <CheckboxField
               label="Tidak ada"
               name="tidakAdaGraft"
@@ -494,7 +496,7 @@ const SurgicalProcedureForm: React.FC = () => {
               onChange={handleChange}
             />
             <FormField
-              label="Ada, Letak"
+              label="Ada,Letak"
               name="adaFraft"
               value={formData.adaGraft}
               onChange={handleChange}
@@ -503,30 +505,45 @@ const SurgicalProcedureForm: React.FC = () => {
         </div>
       </div>
       {/* Counts */}
-      <div className="text-2xl font-bold mb-4 uppercase flex items-center justify-start ">
-        <div className="text-5xl mr-3 font-bold">C</div> Counts
+      <div className="text-2xl font-bold mb-4 uppercase flex sm:mt-4 items-center justify-start ">
+        <div className="text-5xl mr-3 font-bold sm:sr-only sm:text-md sm:mt-2" >C</div> Counts
       </div>
       <div className="relative grid gap-4">
         <div className="flex justify-center flex-col border-b-8 ">
           <div className="mb-2 flex justify-start items-center gap-5 ">
-            <label className="block text-gray-700 md:text-xs ">
-              Kassa yang digunanakan :
+            <label className="block text-gray-700 md:text-xs sm:text-[8px] ">
+              Kassa yang digunanakan
             </label>
             <FormField
-              label="Jenis dan Jumlah"
-              name="jenisKassa"
+              label="Jenis"
+              name="jenisKassa" 
+              className="text-sm sm:text-[8px]"
               value={formData.jenisKassa}
+              onChange={handleChange}
+            />
+             <FormField
+              label="Jumlah"
+              name="jumlahsKassa" 
+              className="text-sm sm:text-[8px]"
+              value={formData.jumlahKassa}
               onChange={handleChange}
             />
           </div>
           <div className="mb-2 flex justify-start items-center gap-5 ">
-            <label className="block text-gray-700 md:text-xs ">
-              Kassa dalam rongga tubuh :
+            <label className="block text-gray-700 md:text-xs sm:text-[8px] ">
+              Kassa dirongga tubuh
             </label>
             <FormField
-              label="Ada, Jenis dan Jumlah"
+              label="Jumlah"
               name="KasaDalamRongga"
               value={formData.KasaDalamRongga}
+              onChange={handleChange}
+            />
+               <FormField
+              label="Jeni"
+              name="jenisKassaRongga" 
+              className="text-sm sm:text-[8px]"
+              value={formData.jenisKassaRongga}
               onChange={handleChange}
             />
             <CheckboxField
@@ -537,7 +554,7 @@ const SurgicalProcedureForm: React.FC = () => {
             />
           </div>
           <div className="mb-2 flex justify-start items-center gap-5 ">
-            <label className="block text-gray-700 md:text-xs ">Jarum :</label>
+            <label className="block text-gray-700 md:text-xs sm:text-[8px] ">Jarum</label>
             <FormField
               label="Jumlah"
               name="jumlahJarum"
@@ -546,7 +563,7 @@ const SurgicalProcedureForm: React.FC = () => {
             />
           </div>
           <div className="mb-2 flex justify-start items-center gap-5 ">
-            <label className="block text-gray-700 md:text-xs ">Pisau :</label>
+            <label className="block text-gray-700 md:text-xs sm:text-[8px] ">Pisau</label>
             <FormField
               label="No Pisau"
               name="noPisau"
@@ -561,7 +578,7 @@ const SurgicalProcedureForm: React.FC = () => {
             />
           </div>
           <div className="mb-2 flex justify-start items-center gap-5 ">
-            <label className="block text-gray-700 md:text-xs ">Instrument :</label>
+            <label className="block text-gray-700 md:text-xs sm:text-[8px] ">Instrument</label>
             <FormField
               label="Jenis "
               name="jenis"
@@ -579,14 +596,14 @@ const SurgicalProcedureForm: React.FC = () => {
       </div>
 
       {/* Have Any Question */}
-      <div className="text-2xl font-bold mb-4 uppercase flex items-center justify-start ">
-        <div className="text-5xl mr-3 font-bold">H</div> Have You Any Question?
+      <div className="text-2xl font-bold sm:sr-only  mb-4 uppercase flex items-center justify-start ">
+        <div className="text-5xl mr-3 font-bold sm:sr-only">H</div> Have You Any Question?
       </div>
       <div className="relative grid gap-4">
         <div className="flex justify-center flex-col border-b-8 ">
           <div className="mb-2 flex justify-start items-center gap-5 ">
-            <label className="block text-gray-700 md:text-xs ">
-              Hal lain yang ingin di tanyakan :
+            <label className="block text-gray-700 md:text-xs sm:text-[8px] ">
+              Hal lain yang ingin di tanyakan
             </label>
             <FormField
               label="Ada"
@@ -603,8 +620,8 @@ const SurgicalProcedureForm: React.FC = () => {
             />
           </div>
           <div className="mb-2 flex justify-start items-center gap-5 ">
-            <label className="block text-gray-700 md:text-xs ">
-              Dokumen yang harus dilengkapi :
+            <label className="block text-gray-700 md:text-xs sm:text-[8px] ">
+              Dokumen yang harus dilengkapi
             </label>
             <FormField
               label="Ada"
@@ -620,8 +637,8 @@ const SurgicalProcedureForm: React.FC = () => {
             />
           </div>
           <div className="mb-2 flex justify-start items-center gap-5 ">
-            <label className="block text-gray-700 md:text-xs ">
-              Nomor serial Implant :
+            <label className="block text-gray-700 md:text-xs sm:text-[8px] ">
+              Nomor serial Implant
             </label>
             <FormField
               label="Ada Impan"
@@ -639,6 +656,7 @@ const SurgicalProcedureForm: React.FC = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </form>
   );
 };
