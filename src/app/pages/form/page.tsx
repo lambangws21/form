@@ -1,12 +1,12 @@
-// src/app/components/SurgicalProcedureForm.tsx
 "use client";
-import React, { useState } from "react";
-import useFormState from "../hooks/useformstate";
-import Header from "./header";
-import Footer from "./footer";
-import FormSection from "./formsection";
 
-const SurgicalProcedureForm: React.FC = () => {
+import React from "react";
+import useFormState from "@/app/hooks/useformstate";
+import Header from "@/app/components/header";
+import Footer from "@/app/components/footer";
+import FormSection from "@/app/components/iu/formsection";
+
+const Form: React.FC = () => {
   const { formData, setFormData } = useFormState();
 
   const handleChange = (
@@ -30,14 +30,7 @@ const SurgicalProcedureForm: React.FC = () => {
   };
 
   return (
-    <form className="max-w-5xl sm:w-full mx-auto p-6 bg-white rounded shadow-md">
-      <Header />
-      <div className="text-2xl font-bold mb-4 sm:text-xs uppercase flex items-center justify-start md:text-xl">
-        <div className="text-7xl mr-3 font-bold sm:font-medium sm:sr-only">
-          S
-        </div>
-        Surgical Procedure
-      </div>
+    <div className="container mx-auto px-4">
       <FormSection
         title="Surgical Procedure"
         fields={[
@@ -81,6 +74,11 @@ const SurgicalProcedureForm: React.FC = () => {
             value: formData.tindakanLainnya,
             onChange: handleChange,
           },
+        ]}
+      />
+      <FormSection
+        title="Medical History"
+        fields={[
           {
             label: "Alergi",
             name: "alergi",
@@ -108,6 +106,11 @@ const SurgicalProcedureForm: React.FC = () => {
             value: formData.penyakitLainnya,
             onChange: handleChange,
           },
+        ]}
+      />
+      <FormSection
+        title="Incision Details"
+        fields={[
           {
             label: "Jenis Insisi",
             name: "jenisInsisi",
@@ -120,12 +123,19 @@ const SurgicalProcedureForm: React.FC = () => {
             value: formData.areaInsisi,
             onChange: handleChange,
           },
+        ]}
+      />
+      <FormSection
+        title="Post-Procedure"
+     
+        fields={[
           {
             label: "Kasa",
             name: "kasa",
             type: "checkbox",
             checked: formData.kasa,
             onChange: handleChange,
+            
           },
           {
             label: "Khusus",
@@ -175,10 +185,10 @@ const SurgicalProcedureForm: React.FC = () => {
             onChange: handleChange,
           },
         ]}
+       
       />
-      <Footer />
-    </form>
+    </div>
   );
 };
 
-export default SurgicalProcedureForm;
+export default Form;

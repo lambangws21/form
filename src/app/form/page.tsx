@@ -1,6 +1,6 @@
 "use client"
-import SurgicalProcedure from "@/app/components/surgicalprocedure";
-import Footer from "@/app/components/footer";
+import SurgicalProcedure from "@/app/components/iu/form";
+
 
 const Form = () => {
   return (

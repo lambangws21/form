@@ -83,6 +83,7 @@ const useFormState = () => {
     adaDokumen: "",
     jumlahKassa:"",
     jenisKassaRongga: "",
+    jumlahPemeriksaan:"",
 
   });
 

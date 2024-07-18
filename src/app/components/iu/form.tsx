@@ -1,12 +1,9 @@
-// src/app/components/SurgicalProcedureForm.tsx
 "use client";
-import React, { useState } from "react";
-import useFormState from "../hooks/useformstate";
-import Header from "./header";
-import Footer from "./footer";
+import React from "react";
+import useFormState from "@/app/hooks/useformstate";
 import FormSection from "./formsection";
 
-const SurgicalProcedureForm: React.FC = () => {
+const Form: React.FC = () => {
   const { formData, setFormData } = useFormState();
 
   const handleChange = (
@@ -30,14 +27,7 @@ const SurgicalProcedureForm: React.FC = () => {
   };
 
   return (
-    <form className="max-w-5xl sm:w-full mx-auto p-6 bg-white rounded shadow-md">
-      <Header />
-      <div className="text-2xl font-bold mb-4 sm:text-xs uppercase flex items-center justify-start md:text-xl">
-        <div className="text-7xl mr-3 font-bold sm:font-medium sm:sr-only">
-          S
-        </div>
-        Surgical Procedure
-      </div>
+    <div>
       <FormSection
         title="Surgical Procedure"
         fields={[
@@ -81,6 +71,11 @@ const SurgicalProcedureForm: React.FC = () => {
             value: formData.tindakanLainnya,
             onChange: handleChange,
           },
+        ]}
+      />
+      <FormSection
+        title="Medical History"
+        fields={[
           {
             label: "Alergi",
             name: "alergi",
@@ -108,6 +103,11 @@ const SurgicalProcedureForm: React.FC = () => {
             value: formData.penyakitLainnya,
             onChange: handleChange,
           },
+        ]}
+      />
+      <FormSection
+        title="Incision Details"
+        fields={[
           {
             label: "Jenis Insisi",
             name: "jenisInsisi",
@@ -120,6 +120,11 @@ const SurgicalProcedureForm: React.FC = () => {
             value: formData.areaInsisi,
             onChange: handleChange,
           },
+        ]}
+      />
+      <FormSection
+        title="Post-Procedure"
+        fields={[
           {
             label: "Kasa",
             name: "kasa",
@@ -176,9 +181,8 @@ const SurgicalProcedureForm: React.FC = () => {
           },
         ]}
       />
-      <Footer />
-    </form>
+    </div>
   );
 };
 
-export default SurgicalProcedureForm;
+export default Form;

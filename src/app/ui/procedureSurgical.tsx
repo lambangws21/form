@@ -1,44 +1,10 @@
-// src/app/components/SurgicalProcedureForm.tsx
-"use client";
-import React, { useState } from "react";
-import useFormState from "../hooks/useformstate";
-import Header from "./header";
-import Footer from "./footer";
-import FormSection from "./formsection";
+import FormSection from "../components/formsection"
+import  us
 
-const SurgicalProcedureForm: React.FC = () => {
-  const { formData, setFormData } = useFormState();
-
-  const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) => {
-    const { name, value, type } = e.target;
-    if (type === "checkbox") {
-      const checked = (e.target as HTMLInputElement).checked;
-      setFormData((prevState) => ({
-        ...prevState,
-        [name]: checked,
-      }));
-    } else {
-      setFormData((prevState) => ({
-        ...prevState,
-        [name]: value,
-      }));
-    }
-  };
-
+const procedureSurgical = () => {
   return (
-    <form className="max-w-5xl sm:w-full mx-auto p-6 bg-white rounded shadow-md">
-      <Header />
-      <div className="text-2xl font-bold mb-4 sm:text-xs uppercase flex items-center justify-start md:text-xl">
-        <div className="text-7xl mr-3 font-bold sm:font-medium sm:sr-only">
-          S
-        </div>
-        Surgical Procedure
-      </div>
-      <FormSection
+    <div>
+          <FormSection
         title="Surgical Procedure"
         fields={[
           {
@@ -176,9 +142,8 @@ const SurgicalProcedureForm: React.FC = () => {
           },
         ]}
       />
-      <Footer />
-    </form>
-  );
-};
+    </div>
+  )
+}
 
-export default SurgicalProcedureForm;
+export default procedureSurgical
